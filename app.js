@@ -6,11 +6,11 @@ $(document).ready(function() {
             method: "GET",
             dataType: 'xml'
         }).done(function(response) {
-            var people = $(response).find('person');
-            console.log($('#results').append("<ul></ul>"));
-            $(people).each(function() {
+            var superhero = $(response).find('superheroes');
+            $('#results').append("<ul></ul>");
+            $(superhero.each(function() {
                 $('#results ul').append('<li>' + $(this).find('name').text() + '</li>');
-            });
+            }));
         }).fail(function() {
             alert('There was a problem with the request.');
         });
